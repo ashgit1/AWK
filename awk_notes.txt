@@ -1,0 +1,124 @@
+========================================
+AWK Learnings:
+========================================
+
+AWK, one of the most prominent text-processing utility on GNU/Linux.
+AWK is an interpreted programming language. 
+It is very powerful and specially designed for text processing. 
+Its name is derived from the family names of its authors − 
+Alfred Aho, Peter Weinberger, and Brian Kernighan.
+
+
+Myriad(countless or extremely great number) of tasks can be done with AWK.
+
+=====================================
+Listed below are just a few of them:
+=====================================
+Text processing,
+Producing formatted text reports,
+Performing arithmetic operations,
+Performing string operations, and many more.
+
+====================================
+Workflow
+====================================
+AWK follows a simple workflow − Read, Execute, and Repeat.
+
+Read:
+-----
+AWK reads a line from the input stream (file, pipe, or stdin) and stores it in memory.
+
+Execute:
+--------
+All AWK commands are applied sequentially on the input. 
+By default AWK execute commands on every line. 
+We can restrict this by providing patterns.
+
+Repeat:
+-------
+This process repeats until the file reaches its end.
+
+=====================================
+Program Structure:
+=====================================
+
+1. BEGIN block:
+---------------
+The syntax of the BEGIN block is as follows −
+
+$ BEGIN {awk-commands}
+
+The BEGIN block gets executed at program start-up. It executes only once. 
+This is good place to initialize variables. 
+BEGIN is an AWK keyword and hence it must be in upper-case. 
+Please note that this block is optional.
+
+2. Body Block:
+--------------
+The syntax of the body block is as follows −
+
+$ /pattern/ {awk-commands}
+The body block applies AWK commands on every input line. 
+By default, AWK executes commands on every line. 
+We can restrict this by providing patterns. 
+Note that there are no keywords for the Body block.
+
+3. END Block:
+-------------
+The syntax of the END block is as follows −
+
+$ END {awk-commands}
+The END block executes at the end of the program. 
+END is an AWK keyword and hence it must be in upper-case. 
+Please note that this block is optional.
+
+==================================
+AWK Options:
+==================================
+
+The -v option:
+--------------
+This option assigns a value to a variable. It allows assignment before the program execution.
+
+The --dump-variables[=file] option:
+-----------------------------------
+It prints a sorted list of global variables and their final values to file. 
+The default file is awkvars.out.
+
+The --help option:
+------------------
+This option prints the help message on standard output.
+
+The --profile[=file] option:
+----------------------------
+This option generates a pretty-printed version of the program in file. 
+Default file is awkprof.out
+Write a one liner awk program and use this option to make that one liner program into a 
+beautiful formatted and indentated program.
+
+The --version option:
+---------------------
+This option displays the version information of the AWK program.
+
+=====================================
+AWK - Built-in Variables:
+=====================================
+
+ARGC:
+-----
+It gives the number of arguments provided at the command line.
+Note that awk is also treated for the count in the command.
+
+ARGV:
+-----
+It is an array that stores the command-line arguments. 
+The array's valid index ranges from 0 to ARGC-1.
+
+ENVIRON:
+--------
+It is an associative array of environment variables.
+$ awk 'BEGIN { print ENVIRON["USER"] }' gives the user. 
+'Ashish'
+
+Similarly we have many...
+

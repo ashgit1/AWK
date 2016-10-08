@@ -1,0 +1,86 @@
+======================
+AWK Commands:
+======================
+
+Reading from a file:
+--------------------
+$ awk 'BEGIN{printf "SrNo\tName\tSub\tMarks\n"} {print} END{printf "-----------------------"}' marks.txt;
+
+Read awk commands from .awk file:
+---------------------------------
+$ awk -f command.awk marks.txt;
+
+Assign a value to variable:
+---------------------------
+$ awk -v name=Ashish 'BEGIN{printf "Name = %s", name}';
+
+Prints Sorted list of global variables:
+---------------------------------------
+$ awk --dump-variables ''
+$ cat awkvars.out
+	
+Awk Help Options:
+-----------------
+$ awk --help
+
+Pretty-Printed version of your program:
+---------------------------------------
+
+$ awk --profile 'BEGIN{printf "-----|Header|-----\n"} {print} END{printf "-----|Footer|-----\n"}' marks.txt > /dev/null
+$ cat awkprof.out
+
+Awk Version:
+------------
+$ awk --version
+
+Count no of arguments(ARGC):
+----------------------------
+$ awk 'BEGIN{print "No of arguments = ", ARGC}' My name is Ashishkumar Gupta
+
+Print the Arguments (ARGV):
+---------------------------
+
+$ awk 'BEGIN{
+	for(i=0; i<ARGC; ++i ){
+		printf("ARGV[%d] = %s \n", i, ARGV[i])	
+	}
+}' My Name is Ashishkumar Gupta
+
+No of Fields(NF):
+-----------------
+$ echo -e "One Two\nOne Two Three\nOne Two Three Four" | awk 'NF > 2'
+
+Displays the nth Field from the file:
+--------------------------------------
+$ awk '{print $2 "\t" $3}' filename;
+
+To Find a particular word in file case-insensitive:
+---------------------------------------------------
+$ awk 'BEGIN{IGNORECASE = 1} /ashu/' marks.txt
+$ grep -i "ashu" marks.txt
+
+Arithmetic Operations:
+----------------------
+awk 'BEGIN{ a=15; b=20; print "(a+b) = ", (a+b)}'
+awk 'BEGIN{ a=15; b=20; print "(a-b) = ", (a-b)}'
+awk 'BEGIN{ a=15; b=20; print "(a-*b) = ", (a-*b)}'
+awk 'BEGIN{ a=15; b=20; print "(a*b) = ", (a*b)}'
+awk 'BEGIN{ a=15; b=20; print "(a/b) = ", (a/b)}'
+awk 'BEGIN{ a=15; b=20; print "(a%b) = ", (a%b)}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
